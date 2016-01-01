@@ -43,8 +43,8 @@ public class iOSVRDevice : VRDevice {
   }
 
   public override void Init() {
-    isOpenGL = isOpenGLAPI();
-    setSyncWithCardboardEnabled(Cardboard.SDK.SyncWithCardboardApp);
+	isOpenGL = false; //isOpenGLAPI();
+	setSyncWithCardboardEnabled(Cardboard.SDK.SyncWithCardboardApp);
     base.Init();
   }
 

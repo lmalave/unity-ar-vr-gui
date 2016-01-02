@@ -52,10 +52,15 @@ public class TransitionManager : MonoBehaviour
         // at resume time, the video background might get restarted beind the hood by Vuforia (despite we were in VR)
         bool isVideoCurrentlyEnabled = IsVideoBackgroundRenderingEnabled();
 
-        bool ARMode = (mTransitionFactor <= 0.5f);
-        if ((ARMode != mCurrentARMode) || (ARMode != isVideoCurrentlyEnabled))
-	    {
-	        mCurrentARMode = ARMode;
+		bool ARMode = (mTransitionFactor <= 0.5f); // mTransitionFactor is set to 0 on GoToVR, 1 on GoToAR
+        if ((ARMode != mCurrentARMode) || (ARMode != isVideoCurrentlyEnabled)) // mCurrentARMode is initially false, so will be triggered if mTransitionFactor <= 0.5f 
+	    { 
+			Debug.Log("In Update(), if condition triggered"); 
+			Debug.Log("mTransitionFactor: "  + mTransitionFactor); // mTransitionFactor is set to 0 on GoToVR, 1 on GoToAR
+			Debug.Log("ARMode: "  + ARMode); // ...so ARMode will be True after GoToVR is executed
+			Debug.Log("mCurrentARMode: "  + mCurrentARMode); // initially False
+			Debug.Log("isVideoCurrentlyEnabled: "  + isVideoCurrentlyEnabled);
+	        mCurrentARMode = ARMode; // now set mCurrentARMode to false, so on next Update condition won't be triggered
 
 	        // Query Vuforia for a target frame rate and set it in Unity:
 	        int targetFPS =
@@ -66,9 +71,9 @@ public class TransitionManager : MonoBehaviour
 	        // e.g. if targetFPS > 50 --> vSyncCount = 1; else vSyncCount = 2;
 	        Application.targetFrameRate = targetFPS;
 
-            if (ARMode != isVideoCurrentlyEnabled)
+            if (ARMode != isVideoCurrentlyEnabled) // isVideoCurrentlyEnabled seems to be True initially
 	        {
-	            SetVideoBackgroundVisible(ARMode);
+	            SetVideoBackgroundVisible(ARMode); // switching back to AR mode so turn video background on
             }
 
             // We apply the Frustum skewing only in AR mode 
@@ -77,17 +82,21 @@ public class TransitionManager : MonoBehaviour
 
             // In AR mode, we enable th HideExcessAreaBehaviour
             // while we disable it in VR mode, so to use the full field of view of the VR cameras
+			Debug.Log("camera rig root: "+GetCameraRigRoot());
+			Debug.Log("setting HEA enabled to: "+ARMode);
             foreach (var hea in GetCameraRigRoot().GetComponentsInChildren<HideExcessAreaAbstractBehaviour>())
             {
                 if (hea.enabled != ARMode)
                     hea.enabled = ARMode;
             }
 
+			Debug.Log("setting VR objects active to: "+!ARMode);
             foreach (var go in VROnlyObjects)
             {
                 go.SetActive(!ARMode);
             }
 
+			Debug.Log("setting AR objects active to: "+ARMode);
             foreach (var go in AROnlyObjects)
             {
                 go.SetActive(ARMode);
@@ -96,9 +105,9 @@ public class TransitionManager : MonoBehaviour
 
 	    if (mPlaying)
         {
-            SetBlackMaskVisible(true, mTransitionFactor);
+            SetBlackMaskVisible(true, mTransitionFactor); // black mask is on during transition
             
-            float delta = (mBackward ? -1 : 1) * Time.deltaTime / transitionDuration;
+            float delta = (mBackward ? -1 : 1) * Time.deltaTime / transitionDuration; // adding if switching to VR, subtracting if switching back to AR
             mTransitionFactor += delta;
 
             if (mTransitionFactor <= 0 || mTransitionFactor >= 1)
@@ -114,11 +123,17 @@ public class TransitionManager : MonoBehaviour
 
 
     #region PUBLIC_METHODS
+
+	// Play transition animation
     public void Play(bool reverse)
     {
         mPlaying = true;
-        mBackward = reverse;
+        mBackward = reverse; // same as reverse
         mTransitionFactor = mBackward ? 1 : 0;
+		Debug.Log("in Play, reverse: "+reverse);
+		Debug.Log("in Play, mPlaying: "+mPlaying);
+		Debug.Log("in Play, mBackward: "+mBackward);
+		Debug.Log("in Play, mTransitionFactor: "+mTransitionFactor);
     }
 
 	public void GoToVR()

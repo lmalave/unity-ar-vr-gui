@@ -1,0 +1,23 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Reticle.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ViewTrigger.cs" Line="1" Column="1" />
+      <File FileName="../../../git/flamingo/Assets/StartManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SplashAndLoad/SplashManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TransitionManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SplashAndLoad/AboutManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SplashAndLoad/BackToAbout.cs" Line="1" Column="1" />
+      <File FileName="../../../git/flamingo/Assets/WeatherTrackableEventHandler.cs" Line="150" Column="5" />
+      <File FileName="Assets/NoTouchGUI Assets/Scripts/demo scripts/BNG_NonVRWalk.cs" Line="22" Column="11" />
+      <File FileName="Assets/Scripts/Reticle.cs" Line="11" Column="5" />
+      <File FileName="Assets/Scripts/GazeRay.cs" Line="1" Column="1" />
+      <File FileName="Assets/NoTouchGUI Assets/Scripts/BNG_Zapper.cs" Line="1" Column="1" />
+      <File FileName="Assets/NoTouchGUI Assets/Scripts/BNG_ZapperAction.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -15,12 +15,16 @@ namespace Vuforia
 		#region PRIVATE_MEMBER_VARIABLES
 		
 		public GameObject controllerObject;
-		public GameObject positionTextObject;
-		public GameObject rotationTextObject;
-		public GameObject objectToMove;
+		public GameObject controllerPositionTextObject;
+		public GameObject controllerRotationTextObject;
+		public GameObject character;
+		public GameObject characterPositionTextObject;
+		public GameObject characterRotationTextObject;
 
-		private TextMesh positionTextMesh;
-		private TextMesh rotationTextMesh;
+		private TextMesh controllerPositionTextMesh;
+		private TextMesh controllerRotationTextMesh;
+		private TextMesh characterPositionTextMesh;
+		private TextMesh characterRotationTextMesh;
 
 		private TrackableBehaviour mTrackableBehaviour;
 		private bool isTracked = false;
@@ -40,8 +44,10 @@ namespace Vuforia
 				mTrackableBehaviour.RegisterTrackableEventHandler(this);
 			}
 
-			positionTextMesh = positionTextObject.GetComponent<TextMesh> ();
-			rotationTextMesh = rotationTextObject.GetComponent<TextMesh> ();
+			controllerPositionTextMesh = controllerPositionTextObject.GetComponent<TextMesh> ();
+			controllerRotationTextMesh = controllerRotationTextObject.GetComponent<TextMesh> ();
+			characterPositionTextMesh = characterPositionTextObject.GetComponent<TextMesh> ();
+			characterRotationTextMesh = characterRotationTextObject.GetComponent<TextMesh> ();
 		}
 		
 		#endregion // UNTIY_MONOBEHAVIOUR_METHODS
@@ -50,21 +56,26 @@ namespace Vuforia
 		{
 			Vector3 controllerObjectPosition = controllerObject.transform.position;
 			Vector3 controllerObjectRotation = controllerObject.transform.eulerAngles;
-			positionTextMesh.text = "Position: " + controllerObjectPosition; 
-			rotationTextMesh.text = "Rotation: " + controllerObjectRotation;
+			controllerPositionTextMesh.text = "Controller Position: " + controllerObjectPosition; 
+			controllerRotationTextMesh.text = "Controller Rotation: " + controllerObjectRotation;
+			Vector3 characterPosition = character.transform.position;
+			Vector3 characterRotation = character.transform.eulerAngles;
+			characterPositionTextMesh.text = "Character Position: " + characterPosition; 
+			characterRotationTextMesh.text = "Character Rotation: " + characterRotation;
+
 			Vector3 moveDirection = new Vector3 (0f, 0f, 0.1f);
 			if (isTracked && controllerObjectRotation.x > 30f && controllerObjectRotation.x < 330f) {
 				if (controllerObjectRotation.x > 180f) {
 					moveDirection *= -1f;
 				}
-				objectToMove.transform.Translate (moveDirection);
+				character.transform.Translate (moveDirection);
 			}
 			Vector3 rotateDirection = new Vector3 (0f, 1f, 0f);
 			if (isTracked && controllerObjectRotation.z > 30f && controllerObjectRotation.z < 330f) {
 				if (controllerObjectRotation.z < 180f) {
 					rotateDirection *= -1f;
 				}
-				objectToMove.transform.Rotate (rotateDirection);
+				character.transform.Rotate (rotateDirection);
 			}
 
 			#if UNITY_ANDROID

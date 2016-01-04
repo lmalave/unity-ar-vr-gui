@@ -120,7 +120,17 @@ public class TransitionManager : MonoBehaviour
         mBackward = reverse;
         mTransitionFactor = mBackward ? 1 : 0;
     }
-    #endregion // PUBLIC_METHODS
+
+	public void GoToVR()
+	{
+		Play(false);
+	}
+
+	public void GoToAR()
+	{
+		Play(true);
+	}
+	#endregion // PUBLIC_METHODS
 
 
     #region PRIVATE_METHODS

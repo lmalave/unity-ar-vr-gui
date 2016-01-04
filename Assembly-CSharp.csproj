@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CDD57017-B35B-5587-4EB0-8E21D2C16673}</ProjectGuid>
+    <ProjectGuid>{4EFCCF62-8C24-8119-954E-E8553AAEE56A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -108,6 +108,7 @@
      <Compile Include="Assets\Scripts\Autofocus.cs" />
      <Compile Include="Assets\Scripts\BlackMaskBehaviour.cs" />
      <Compile Include="Assets\Scripts\Button3D.cs" />
+     <Compile Include="Assets\Scripts\ControllerTrackableEventHandler.cs" />
      <Compile Include="Assets\Scripts\GazeRay.cs" />
      <Compile Include="Assets\Scripts\InitErrorHandler.cs" />
      <Compile Include="Assets\Scripts\Reticle.cs" />
@@ -117,6 +118,7 @@
      <Compile Include="Assets\Scripts\SplashAndLoad\SplashManager.cs" />
      <Compile Include="Assets\Scripts\TransitionManager.cs" />
      <Compile Include="Assets\Scripts\ViewTrigger.cs" />
+     <Compile Include="Assets\Scripts\VirtualButtonEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
@@ -170,6 +172,7 @@
      <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Vuforia\Editor\WebcamProfiles\profiles.xml" />
      <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
+     <None Include="Assets\StreamingAssets\QCAR\VuforiaEcommerce.xml" />
      <None Include="Assets\Plugins\Android\AndroidManifest 1.xml" />
      <None Include="Assets\Shaders\BlackMask.shader" />
      <None Include="Assets\Plugins\Legacy\Android\AndroidManifest.xml" />
@@ -180,7 +183,7 @@
      <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
      <None Include="Assets\Shaders\GroundBlend.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/lmalave/Documents/UnityProjects/VuforiaARVRSample/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/lmalave/git/unity-ar-vr-gui/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -189,12 +192,12 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Qualcomm.Vuforia.UnityExtensions">
- <HintPath>/Users/lmalave/Documents/UnityProjects/VuforiaARVRSample/Assets/Vuforia/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions.dll</HintPath>
+ <HintPath>/Users/lmalave/git/unity-ar-vr-gui/Assets/Vuforia/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{5D117544-82BB-E138-BE33-A170E2A675D3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{4A51BDB1-50A2-FF71-FFDD-7F2C9F6B2CFE}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

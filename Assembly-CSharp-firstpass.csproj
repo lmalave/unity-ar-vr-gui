@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5D117544-82BB-E138-BE33-A170E2A675D3}</ProjectGuid>
+    <ProjectGuid>{4A51BDB1-50A2-FF71-FFDD-7F2C9F6B2CFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -63,6 +63,7 @@
      <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Vuforia\Editor\WebcamProfiles\profiles.xml" />
      <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
+     <None Include="Assets\StreamingAssets\QCAR\VuforiaEcommerce.xml" />
      <None Include="Assets\Plugins\Android\AndroidManifest 1.xml" />
      <None Include="Assets\Shaders\BlackMask.shader" />
      <None Include="Assets\Plugins\Legacy\Android\AndroidManifest.xml" />
@@ -79,7 +80,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Qualcomm.Vuforia.UnityExtensions">
- <HintPath>/Users/lmalave/Documents/UnityProjects/VuforiaARVRSample/Assets/Vuforia/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions.dll</HintPath>
+ <HintPath>/Users/lmalave/git/unity-ar-vr-gui/Assets/Vuforia/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

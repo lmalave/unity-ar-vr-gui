@@ -31,6 +31,7 @@ namespace Vuforia
 		private TextMesh pointerPositionTextMesh;
 		private TrackableBehaviour mTrackableBehaviour;
 		private bool isTracked = false;
+		private Vector3 waypointDestination = Vector3.zero;
 
 		
 		#endregion // PRIVATE_MEMBER_VARIABLES
@@ -58,28 +59,39 @@ namespace Vuforia
 		
 		void Update()
 		{
-			Vector3 controllerObjectPosition = controllerObject.transform.position;
-			Vector3 controllerObjectRotation = controllerObject.transform.eulerAngles;
-			Vector3 pointerDirection = directionPointer.transform.position - controllerObjectPosition;
-			controllerPositionTextMesh.text = "Controller Position: " + controllerObjectPosition; 
-			controllerRotationTextMesh.text = "Pointer Positon: " + directionPointer.transform.position;
-			Vector3 characterPosition = character.transform.position;
-			Vector3 characterRotation = character.transform.eulerAngles;
-			characterPositionTextMesh.text = "Pointer direction: " + pointerDirection; 
-			characterRotationTextMesh.text = "Character Rotation: " + characterRotation;
-
-			//Vector3 moveDirection = new Vector3 (0f, 0f, 0.1f);
-			Vector3 moveDirection = new Vector3(pointerDirection.x, 0, pointerDirection.z); // only take x and z components of direction
-			pointerPositionTextMesh.text = "Move Direction z: " + moveDirection.z;
-			if (isTracked && controllerObjectRotation.x > 30f && controllerObjectRotation.x < 330f) {
-				character.transform.Translate (moveDirection, Space.World);
-			}
-			Vector3 rotateDirection = new Vector3 (0f, 0.3f, 0f);
-			if (isTracked && controllerObjectRotation.z > 30f && controllerObjectRotation.z < 330f) {
-				if (controllerObjectRotation.z < 180f) {
-					rotateDirection *= -1f;
+			if (waypointDestination != Vector3.zero) {
+				if (Vector3.Distance (waypointDestination, character.transform.position) < 0.5) {
+					waypointDestination = Vector2.zero;
+				} else {
+					Vector3 waypointDirection = waypointDestination - character.transform.position;
+					Vector3 adjustedWaypointDirection = new Vector3 (waypointDirection.x, 0f, waypointDirection.z);
+					adjustedWaypointDirection.Normalize ();
+					character.transform.Translate (adjustedWaypointDirection * 0.01f, Space.World);
 				}
-				character.transform.Rotate (rotateDirection);
+			} else {
+				Vector3 controllerObjectPosition = controllerObject.transform.position;
+				Vector3 controllerObjectRotation = controllerObject.transform.eulerAngles;
+				Vector3 pointerDirection = directionPointer.transform.position - controllerObjectPosition;
+				controllerPositionTextMesh.text = "Controller Position: " + controllerObjectPosition; 
+				controllerRotationTextMesh.text = "Pointer Positon: " + directionPointer.transform.position;
+				Vector3 characterPosition = character.transform.position;
+				Vector3 characterRotation = character.transform.eulerAngles;
+				characterPositionTextMesh.text = "Pointer direction: " + pointerDirection; 
+				characterRotationTextMesh.text = "Character Rotation: " + characterRotation;
+
+				//Vector3 moveDirection = new Vector3 (0f, 0f, 0.1f);
+				Vector3 moveDirection = new Vector3 (pointerDirection.x, 0, pointerDirection.z); // only take x and z components of direction
+				pointerPositionTextMesh.text = "Move Direction z: " + moveDirection.z;
+				if (isTracked && controllerObjectRotation.x > 30f && controllerObjectRotation.x < 330f) {
+					character.transform.Translate (moveDirection, Space.World);
+				}
+				Vector3 rotateDirection = new Vector3 (0f, 0.3f, 0f);
+				if (isTracked && controllerObjectRotation.z > 30f && controllerObjectRotation.z < 330f) {
+					if (controllerObjectRotation.z < 180f) {
+						rotateDirection *= -1f;
+					}
+					character.transform.Rotate (rotateDirection);
+				}
 			}
 
 			#if UNITY_ANDROID
@@ -120,7 +132,11 @@ namespace Vuforia
 		{
 			return isTracked;
 		}
-		
+
+		public void MoveToWaypoint (Vector3 waypointPosition) {
+			waypointDestination = waypointPosition;
+		}
+
 		#endregion // PUBLIC_METHODS
 		
 		

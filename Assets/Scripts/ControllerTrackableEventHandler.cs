@@ -60,13 +60,13 @@ namespace Vuforia
 		void Update()
 		{
 			if (waypointDestination != Vector3.zero) {
-				if (Vector3.Distance (waypointDestination, character.transform.position) < 0.5) {
+				if (Vector3.Distance (waypointDestination, character.transform.position) < 2) {
 					waypointDestination = Vector2.zero;
 				} else {
 					Vector3 waypointDirection = waypointDestination - character.transform.position;
 					Vector3 adjustedWaypointDirection = new Vector3 (waypointDirection.x, 0f, waypointDirection.z);
 					adjustedWaypointDirection.Normalize ();
-					character.transform.Translate (adjustedWaypointDirection * 0.01f, Space.World);
+					character.transform.Translate (adjustedWaypointDirection * 0.05f, Space.World);
 				}
 			} else {
 				Vector3 controllerObjectPosition = controllerObject.transform.position;

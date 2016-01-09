@@ -7,7 +7,9 @@ using System.Collections;
 
 public class LoadingManager : MonoBehaviour 
 {
-    #region PRIVATE_MEMBER_VARIABLES
+	public static string scene =  "Vuforia-3-AR-VR-Waypoints";
+
+	#region PRIVATE_MEMBER_VARIABLES
     private bool mChangeLevel = true;
     private RawImage mUISpinner;
     #endregion // PRIVATE_MEMBER_VARIABLES
@@ -37,7 +39,7 @@ public class LoadingManager : MonoBehaviour
     #region PRIVATE_METHODS
     private void LoadARSceneAsync()
     {
-        Application.LoadLevelAsync("Vuforia-3-AR-VR");
+        Application.LoadLevelAsync(scene);
     }
 
     private RawImage FindSpinnerImage()

@@ -12,6 +12,7 @@ namespace Vuforia
 	public class PositionMarkerTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 	{
 		#region PUBLIC_MEMBER_VARIABLES
+		public GameObject positionMarker;
 		public GameObject positionAnchor;
 		public GameObject character;
 		public GameObject vrWorld;
@@ -51,8 +52,8 @@ namespace Vuforia
 
 			//Vector3 moveDirection = new Vector3 (0f, 0f, 0.1f);
 			if (isTracked) {
-				vrWorld.transform.position = transform.position;
-				vrWorld.transform.rotation = transform.rotation;
+				vrWorld.transform.position = positionMarker.transform.position;
+				vrWorld.transform.rotation = positionMarker.transform.rotation;
 				vrWorld.transform.position -= vrWorld.transform.right * initialAnchorPosition.x;
 				vrWorld.transform.position -= vrWorld.transform.up * initialAnchorPosition.y;
 				vrWorld.transform.position -= vrWorld.transform.forward * initialAnchorPosition.z;

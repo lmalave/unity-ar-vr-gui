@@ -20,9 +20,10 @@ namespace Vuforia
 		#region PRIVATE_MEMBER_VARIABLES
 		private TrackableBehaviour mTrackableBehaviour;
 		private bool isTracked = false;
-		private Vector3 initialPositionAnchorPosition;
+		private Vector3 initialAnchorPosition;
+		private Quaternion initialAnchorRotation;
 
-		
+
 		#endregion // PRIVATE_MEMBER_VARIABLES
 		
 		
@@ -36,7 +37,10 @@ namespace Vuforia
 			{
 				mTrackableBehaviour.RegisterTrackableEventHandler(this);
 			}
-			initialPositionAnchorPosition = positionAnchor.transform.position;  
+			initialAnchorPosition = positionAnchor.transform.position;  
+			initialAnchorRotation = positionAnchor.transform.rotation;  
+			Debug.Log ("initialAnchorPosition: " + initialAnchorPosition);
+			Debug.Log ("initialAnchorRotation: " + initialAnchorRotation);
 		}
 		
 		#endregion // UNTIY_MONOBEHAVIOUR_METHODS
@@ -44,11 +48,14 @@ namespace Vuforia
 		void Update()
 		{
 			Vector3 markerPosition = transform.position - character.transform.position;
-			Vector3 vrWorldPosition = markerPosition - initialPositionAnchorPosition;
 
 			//Vector3 moveDirection = new Vector3 (0f, 0f, 0.1f);
 			if (isTracked) {
-				vrWorld.transform.position = vrWorldPosition;
+				vrWorld.transform.position = transform.position;
+				vrWorld.transform.rotation = transform.rotation;
+				vrWorld.transform.position -= vrWorld.transform.right * initialAnchorPosition.x;
+				vrWorld.transform.position -= vrWorld.transform.up * initialAnchorPosition.y;
+				vrWorld.transform.position -= vrWorld.transform.forward * initialAnchorPosition.z;
 			}
 
 			#if UNITY_ANDROID

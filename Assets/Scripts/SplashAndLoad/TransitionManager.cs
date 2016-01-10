@@ -13,7 +13,7 @@ public class TransitionManager : MonoBehaviour
 	public static bool enableVRMode = false;
 
     [Range(0.1f, 5.0f)]
-    public static float transitionDuration = 1.5f; // seconds
+    public static  float transitionDuration = 1.5f; // seconds
     #endregion PUBLIC_MEMBER_VARIABLES
 
 

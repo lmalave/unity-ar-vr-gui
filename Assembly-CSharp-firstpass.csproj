@@ -58,11 +58,8 @@
      <None Include="Assets\Vuforia\Shaders\RenderVideoBackground.shader" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpTunnelDistortion.shader" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Trail.shader" />
-     <None Include="Assets\NoTouchGUI Assets\ReadMeFirst.txt" />
      <None Include="Assets\StreamingAssets\QCAR\Stones.xml" />
-     <None Include="Assets\NoTouchGUI Assets\Textures\CG-Textures-License.txt" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\AlphaBlended.shader" />
-     <None Include="Assets\NoTouchGUI Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
      <None Include="Assets\license_3rdpartynotice.txt" />
      <None Include="Assets\Cardboard\Legacy\Resources\GUIScreen.shader" />

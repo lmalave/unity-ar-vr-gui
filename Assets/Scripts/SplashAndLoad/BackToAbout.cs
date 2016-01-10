@@ -14,7 +14,7 @@ public class BackToAbout : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             // Go back to the About page
-            Application.LoadLevel("Vuforia-1-About");
+            Application.LoadLevel("Vuforia-1-Start");
         }
 #endif
     }

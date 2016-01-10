@@ -50,6 +50,7 @@ public class GazeTrigger : MonoBehaviour
                 mTriggered = true;
                 mFocusedTime = 0;
 				objectToActivate.SendMessage (functionToCall);
+				StartCoroutine(ResetAfter(0.4f * TransitionManager.transitionDuration));
              }
         }
         else

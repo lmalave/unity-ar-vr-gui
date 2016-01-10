@@ -9,7 +9,6 @@ using System.Collections.Generic;
 public class GazeRay : MonoBehaviour
 {
     #region PUBLIC_MEMBER_VARIABLES
-    public ViewTrigger[] viewTriggers;
     #endregion // PUBLIC_MEMBER_VARIABLES
 
 

@@ -16,6 +16,10 @@ public class GazeTrigger : MonoBehaviour
     public bool Focused { get; set; }
 	public GameObject objectToActivate;
 	public string functionToCall;
+	public bool followCamera;
+	public GameObject cameraToFollow;
+	public Vector3 followCameraOffset;
+ 	public bool faceCamera;
     #endregion // PUBLIC_MEMBER_VARIABLES
 
 
@@ -36,6 +40,15 @@ public class GazeTrigger : MonoBehaviour
 
     void Update()
     {
+		if (followCamera) {
+			Vector3 newPosition = cameraToFollow.transform.position; 
+			newPosition += -cameraToFollow.transform.right * followCameraOffset.x;
+			newPosition += cameraToFollow.transform.forward * followCameraOffset.z;
+			newPosition.y = followCameraOffset.y; 
+			transform.position = newPosition;
+			transform.rotation = cameraToFollow.transform.rotation;
+		}
+
         if (mTriggered) 
             return;
 

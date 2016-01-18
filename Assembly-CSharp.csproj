@@ -130,6 +130,7 @@
      <Compile Include="Assets\Scripts\SplashAndLoad\TransitionManager.cs" />
      <Compile Include="Assets\Scripts\ViewTrigger.cs" />
      <Compile Include="Assets\Scripts\VirtualButtonEventHandler.cs" />
+     <Compile Include="Assets\Scripts\VirtualJoystickHandler.cs" />
      <Compile Include="Assets\Scripts\WaypointManager.cs" />
      <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />

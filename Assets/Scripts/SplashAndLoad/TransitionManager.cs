@@ -10,8 +10,9 @@ public class TransitionManager : MonoBehaviour
     #region PUBLIC_MEMBER_VARIABLES
     public GameObject[] VROnlyObjects;
     public GameObject[] AROnlyObjects;
-	public static bool enableVRMode = false;
+	public bool startInVR = false;
 
+	public static bool enableVRMode = false;
     [Range(0.1f, 5.0f)]
     public static  float transitionDuration = 1.5f; // seconds
     #endregion PUBLIC_MEMBER_VARIABLES
@@ -42,6 +43,9 @@ public class TransitionManager : MonoBehaviour
         }
 
 		Cardboard.SDK.VRModeEnabled = enableVRMode;
+		if (startInVR) {
+			GoToVR ();
+		}
 	}
 	
 	void Update () 

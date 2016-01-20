@@ -16,7 +16,11 @@ IVirtualButtonEventHandler
 {
 	#region PUBLIC_MEMBER_VARIABLES
 
+	public GameObject controllerObject;
 	public GameObject buttonTextObject;
+	public GameObject flameObject;
+	public GameObject beamObject;
+	public float fireDuration;
 
 	#endregion // PUBLIC_MEMBER_VARIABLES
 
@@ -57,6 +61,11 @@ IVirtualButtonEventHandler
 	{
 		buttonTextMesh.text = "OnButtonPressed:" + vb.VirtualButtonName;
 		Debug.Log("OnButtonPressed:" + vb.VirtualButtonName);
+		if (vb.VirtualButtonName == "ButtonX") {
+			flame ();
+		} else if (vb.VirtualButtonName == "ButtonY") {
+			beam ();
+		}
 	}
 
 
@@ -67,6 +76,16 @@ IVirtualButtonEventHandler
 	{
 		buttonTextMesh.text = "OnButtonReleased:" + vb.VirtualButtonName;
 		Debug.Log("OnButtonReleased:" + vb.VirtualButtonName);
+	}
+
+	public void flame() {
+		GameObject newFlame = Instantiate (flameObject, controllerObject.transform.position + (controllerObject.transform.forward * 3f), Quaternion.identity) as GameObject;
+		Destroy (newFlame, fireDuration);
+	}
+
+	public void beam() {
+		GameObject newBeam = Instantiate (beamObject, controllerObject.transform.position + (controllerObject.transform.forward * 3f), Quaternion.identity) as GameObject;
+		Destroy (newBeam, fireDuration);
 	}
 
 

@@ -25,7 +25,7 @@ namespace Vuforia
 		
 		
 		#region UNTIY_MONOBEHAVIOUR_METHODS
-		
+
 		void Start()
 		{
 			mTrackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -37,7 +37,7 @@ namespace Vuforia
 		}
 		
 		#endregion // UNTIY_MONOBEHAVIOUR_METHODS
-		
+
 		void Update()
 		{
 

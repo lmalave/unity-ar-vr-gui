@@ -21,6 +21,7 @@ IVirtualButtonEventHandler
 	public GameObject flameObject;
 	public GameObject beamObject;
 	public float fireDuration;
+	public GameObject arTransitionManager;
 
 	#endregion // PUBLIC_MEMBER_VARIABLES
 
@@ -61,9 +62,14 @@ IVirtualButtonEventHandler
 	{
 		buttonTextMesh.text = "OnButtonPressed:" + vb.VirtualButtonName;
 		Debug.Log("OnButtonPressed:" + vb.VirtualButtonName);
-		if (vb.VirtualButtonName == "ButtonX") {
+		if (vb.VirtualButtonName == "ButtonA") {
+			arTransitionManager.SendMessage("GoToVR");
+		} else if (vb.VirtualButtonName == "ButtonB") {
+			arTransitionManager.SendMessage("GoToAR");
+		} else if (vb.VirtualButtonName == "ButtonX") {
 			flame ();
 		} else if (vb.VirtualButtonName == "ButtonY") {
+			//arTransitionManager.SendMessage("GoToVR");
 			beam ();
 		}
 	}
@@ -79,12 +85,12 @@ IVirtualButtonEventHandler
 	}
 
 	public void flame() {
-		GameObject newFlame = Instantiate (flameObject, controllerObject.transform.position + (controllerObject.transform.forward * 3f), Quaternion.identity) as GameObject;
+		GameObject newFlame = Instantiate (flameObject, controllerObject.transform.position + controllerObject.transform.forward*3f, controllerObject.transform.rotation) as GameObject;
 		Destroy (newFlame, fireDuration);
 	}
 
 	public void beam() {
-		GameObject newBeam = Instantiate (beamObject, controllerObject.transform.position + (controllerObject.transform.forward * 3f), Quaternion.identity) as GameObject;
+		GameObject newBeam = Instantiate (beamObject, controllerObject.transform.position + controllerObject.transform.forward*3f, controllerObject.transform.rotation) as GameObject;
 		Destroy (newBeam, fireDuration);
 	}
 

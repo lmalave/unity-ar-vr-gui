@@ -57,7 +57,8 @@ public class VirtualJoystickHandler : MonoBehaviour {
 			character.transform.InverseTransformDirection (transform.forward);
 		float controllerRelativeYRotation = Vector3.Angle (controllerXZ, characterXZ);
 		if (Mathf.Abs(controllerForwardDirectionInCharacterSpace.x) > 0.1f) {
-			float amountToRotate = (controllerForwardDirectionInCharacterSpace.x - 0.1f) * MaxTurnRate * Time.deltaTime;
+			float amountToRotate = 
+				(Mathf.Abs(controllerForwardDirectionInCharacterSpace.x) - 0.1f) * Mathf.Sign(controllerForwardDirectionInCharacterSpace.x) * MaxTurnRate * Time.deltaTime;
 			pointerPositionTextMesh.text = "amountToRotate: " + MaxTurnRate + ", " + Time.deltaTime + ", " + (MaxTurnRate * Time.deltaTime) + ", " +amountToRotate;
 			Vector3 rotateDirection = new Vector3 (0f, amountToRotate, 0f);
 			character.transform.Rotate (rotateDirection);

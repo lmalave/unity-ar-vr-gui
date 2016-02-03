@@ -54,6 +54,7 @@
      <None Include="Assets\Cardboard\Legacy\Resources\SkyboxMesh.shader" />
      <None Include="Assets\Kitten\Shaders\Normal-Diffuse.shader" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpJump.shader" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Billboard.shader" />
      <None Include="Assets\Shaders\TransparentUnlit.shader" />
      <None Include="Assets\link.xml" />
@@ -66,6 +67,7 @@
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpTunnelDistortion.shader" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Trail.shader" />
      <None Include="Assets\StreamingAssets\QCAR\Stones.xml" />
+     <None Include="Assets\EasyWebViewTexture\readme.txt" />
      <None Include="Assets\Cartoon lowpoly water well\readme.txt" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\AlphaBlended.shader" />
      <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
@@ -87,7 +89,6 @@
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\ExhaustFlame.shader" />
      <None Include="Assets\Plugins\Legacy\Android\AndroidManifest.xml" />
      <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
-     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpTunnel.shader" />
      <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
      <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\SmokeTurbulent.shader" />
@@ -97,6 +98,9 @@
      <None Include="Assets\Shaders\GroundBlend.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/lmalave/git/unity-ar-vr-gui/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>/Users/lmalave/git/unity-ar-vr-gui/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="Assembly-UnityScript-Editor-firstpass">
  <HintPath>/Users/lmalave/git/unity-ar-vr-gui/Library/ScriptAssemblies/Assembly-UnityScript-Editor-firstpass.dll</HintPath>
